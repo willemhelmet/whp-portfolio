@@ -2,10 +2,8 @@
 <html>
     <head>
         <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-        <script src="js/aframe-effects.min.js"></script>
         <script src="js/aframe-travel-component.min.js"></script>
         <script src="js/aframe-lower-on-click.js"></script>
-        <!-- <script src="js/aframe-handle-lights.js"></script> -->
         <script src="js/aframe-ladder-rungs.js"></script>
 
     </head>
@@ -26,8 +24,10 @@
                 <!-- 2: Audi -->
                 <img id="auditext_img" src="assets/img/text/auditext.jpg">
                 <!-- 3: SeeReal-->
-                <img id="seereallogo_img" src="assets/img/text/Seereal.jpg">
-                <!-- Willem's Ladder-->
+                <img id="seerealtext_img" src="assets/img/text/habText.jpg">
+                <!-- CLIMB -->
+                <img id="climbtext_img" src="assets/img/text/climbText.jpg">
+
 
                 <!-- Videos -->
                 <video id="audi_vid" src="assets/videos/audi.webm" autoplay loop="true"></video>
@@ -101,13 +101,13 @@
             </a-entity>
 
             <a-entity id="intro wall objects" position="-2.98 -.109 -1.014">
-                <a-entity id="name" position="0 2.3 0" rotation="0 90 0" scale="1.8 1.8 1" geometry="primitive: plane; height: .724; width: .968" material="src:#name_img">
+                <a-entity id="name" position="0 2.3 0" rotation="0 90 0" scale="1.8 1.8 1" geometry="primitive: plane; height: .724; width: .968" material="src:#name_img; shader:flat">
                     <a-box position="0 0 -.011" width=".968" height=".724" depth=".02"></a-box>
                 </a-entity>
-                <a-entity id="selectedprojects" position="0 1.412 0" rotation="0 90 0" scale="1.5 1.5 1" geometry="primitive: plane; width: .893; height: .170" material="src:#selectedprojects_img">
+                <a-entity id="selectedprojects" position="0 1.412 0" rotation="0 90 0" scale="1.5 1.5 1" geometry="primitive: plane; width: .893; height: .170" material="src:#selectedprojects_img; shader:flat">
                     <a-box position="0 0 -.011" width=".893" height=".170" depth=".02"></a-box>
                 </a-entity>
-                <a-entity id="year" position="0 1 0" rotation="0 90 0" scale="1.5 1.5 1" geometry="primitive: plane; width: .679; height: .232" material="src:#year_img">
+                <a-entity id="year" position="0 1 0" rotation="0 90 0" scale="1.5 1.5 1" geometry="primitive: plane; width: .679; height: .232" material="src:#year_img; shader: flat">
                     <a-box position="0 0 -.011" width=".679" height=".232" depth=".02"></a-box>
                 </a-entity>
             </a-entity>
@@ -119,7 +119,7 @@
             </a-entity>
 
             <a-entity id="audi wall text" position="0 1.8 -8.96">
-                <a-entity id="audi text" position="0 0 0" rotation="0 0 0" scale="2.5 2.5 1" geometry="primitive: plane; height: .525; width: .8" material="src:#auditext_img">
+                <a-entity id="audi text" position="0 0 0" rotation="0 0 0" scale="2.5 2.5 1" geometry="primitive: plane; height: .525; width: .8" material="src:#auditext_img; shader: flat">
                     <a-box position="0 0 -.021" width=".8" height=".525" depth=".04"></a-box>
                 </a-entity>
             </a-entity>
@@ -136,8 +136,12 @@
                     </a-video>
             </a-entity>
 
-            <a-entity id="seereal logo" position="-9.96 2.2 -5.844" rotation="0 90 0" scale="2 2 1" geometry="primitive: plane; height: .705; width: .728" material="src:#seereallogo_img">
-                    <a-box position="0 0 -.021" width=".728" height=".705" depth=".04"></a-box>
+            <a-entity id="seereal logo" position="-9.96 2.2 -5.844" rotation="0 90 0" scale="2 2 1" geometry="primitive: plane; height: .525; width: .8" material="src:#seerealtext_img; shader: flat">
+                    <a-box position="0 0 -.021" width=".8" height=".525" depth=".04"></a-box>
+            </a-entity>
+
+            <a-entity id="climb text" position="-4.04 2 -1.5" rotation="0 -90 0" scale="2 2 1" geometry="primitive: plane; height: .378; width: .8" material="src:#climbtext_img; shader: flat">
+                    <a-box position="0 0 -.021" width=".8" height=".378" depth=".04"></a-box>
             </a-entity>
 
             <a-entity id="ladder" ladder-rungs="frequency: .6; amount:49" position="-7 1 0">
