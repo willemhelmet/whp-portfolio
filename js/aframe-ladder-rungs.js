@@ -12,8 +12,6 @@ AFRAME.registerComponent("ladder-rungs", {
         var frequency = this.data.frequency;
         var amount = this.data.amount;
         
-        console.log(this.el);
-
         for (var i = 0; i < amount; i++)
         {
             var rung = document.createElement('a-box')

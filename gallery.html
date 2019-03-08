@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+        <script src="js/aframe-travel-component.min.js"></script>
+        <script src="js/aframe-lower-on-click.js"></script>
+        <script src="js/aframe-ladder-rungs.js"></script>
+
+    </head>
+    <body>
+        <a-scene fog="type: exponential; density: .1">
+            <a-assets timeout="10000">
+                <!-- Room images-->
+                <img id="plaster_diff" src="assets/img/textures/white_plaster_02_diff_1k.jpg">
+                <img id="plaster_norm" src="assets/img/textures/white_plaster_02_nor_1k.jpg">
+                <img id="floor_diff" src="assets/img/textures/T_Floor_01_D.jpg">
+                <img id="floor_norm" src="assets/img/textures/T_Floor_01_N.jpg">
+
+                <!-- Wall Text -->
+                <!-- 1: Intro -->
+                <img id="name_img" src="assets/img/text/name.jpg"> 
+                <img id="selectedprojects_img" src="assets/img/text/selectedprojects.jpg">
+                <img id="year_img" src="assets/img/text/year.jpg">
+                <!-- 2: Audi -->
+                <img id="auditext_img" src="assets/img/text/auditext.jpg">
+                <!-- 3: SeeReal-->
+                <img id="seerealtext_img" src="assets/img/text/habText.jpg">
+                <!-- CLIMB -->
+                <img id="climbtext_img" src="assets/img/text/climbText.jpg">
+
+
+                <!-- Videos -->
+                <video id="audi_vid" preload="auto" autoplay loop="true" crossorigin="anonymous" poster="assets/videos/audi.jpg">
+                    <source src="assets/videos/audi.webm" type="video/webm">
+                    <source src="assets/videos/audi.mp4" type="video/mp4">
+                </video>
+                <video id="seereal_ctc_vid" preload="auto" autoplay loop="true" crossorigin="anonymous">
+                    <source src="assets/videos/seereal_ctc_trim2.webm" type="video/webm">
+                    <source src="assets/videos/seereal_ctc.mp4" type="video/mp4">
+                </video>
+                <video id="seereal_fl_vid" preload="auto" autoplay loop="true" crossorigin="anonymous">
+                    <source src="assets/videos/seereal_fl_trim.webm" type="video/webm">
+                    <source src="assets/videos/seereal_fl.mp4" type="video/mp4">
+                </video>
+            </a-assets>
+
+            <a-sky color="black"></a-sky>
+
+            <a-entity camera look-controls wasd-controls position="0. 1.8 0">
+                <a-cursor color="white"></a-cursor>
+            </a-entity>
+
+            <a-entity id="teleportSpheres">
+                <a-sphere
+                    position="0 1.8 0" radius=".25" material="shader: flat; fog: false" color="#EDC34C"
+                    travel-node="transition: move; animationDur: 1000; animationEasing: easeInOutQuad"
+                    lower-on-click="index: 0"
+                    animation__down="property: position; to: 0 .5 0; startEvents: time-to-lower-0; delay: 300; dur: 100"
+                    animation__up="property: position; to: 0 1.8 0; startEvents: time-to-lower-1, time-to-lower-2; delay: 300; dur: 100">
+                </a-sphere>
+
+                <a-sphere 
+                    position="0 1.8 -5" radius=".25" material="shader: flat; fog: false" color="#EDC34C"
+                    travel-node="transition: move; animationDur: 1000; animationEasing: easeInOutQuad"
+                    lower-on-click="index: 1"
+                    animation__down="property: position; to: 0 .5 -5; startEvents: time-to-lower-1; delay: 300; dur: 100"
+                    animation__up="property: position; to 0 1.8 -5; startEvents: time-to-lower-0, time-to-lower-2, time-to-lower-3; delay 300; dur: 100" >
+                </a-sphere>
+                <a-sphere 
+                    position="-3 1.8 -7" radius=".25" material="shader: flat; fog: false" color="#EDC34C"
+                    travel-node="transition: move; animationDur: 1000; animationEasing: easeInOutQuad"
+                    lower-on-click="index: 2"
+                    animation__down="property: position; to: -3 .5 -7; startEvents: time-to-lower-2; delay: 300; dur: 100"
+                    animation__up="property: position; to -3 1.8 -7; startEvents: time-to-lower-0, time-to-lower-1, time-to-lower-3, time-to-lower-4; delay 300; dur: 100">
+                </a-sphere>
+                <a-sphere
+                    position="-7.2 1.8 -5.85" radius=".25" material="shader: flat; fog: false" color="#EDC34C"
+                    travel-node="transition: move; animationDur: 1000; animationEasing: easeInOutQuad"
+                    lower-on-click="index: 3"
+                    animation__down="property: position; to: -7.2 .5 -5.85; startEvents: time-to-lower-3; delay: 300; dur: 100"
+                    animation__up="property: position; to -7.2 1.8 -5.85; startEvents: time-to-lower-1; delay 300; dur: 100">
+                </a-sphere>
+
+                <a-sphere
+                    position="-7.2 1.8 -2" radius=".25" material="shader: flat; fog: false" color="#EDC34C"
+                    travel-node="transition: move; animationDur: 1000; animationEasing: easeInOutQuad"
+                    lower-on-click="index: 4"
+                    animation__down="property: position; to: -7.2 .5 -2; startEvents: time-to-lower-4; delay: 300; dur: 100"
+                    animation__up="property: position; to -7.2 1.8 -2; startEvents: time-to-lower-1; delay 300; dur: 100">
+                </a-sphere>
+            </a-entity>
+
+            <a-entity id="lights">
+                <!--
+                    <a-entity id="dev light" light="type: ambient"></a-entity>
+                -->
+
+                <a-entity id="light1" light="type: spot; angle: 35; penumbra: 1" position="0 3.5 -1" rotation="-90 0 0"></a-entity>
+                <a-entity id="light2" light="type: spot; angle: 35; penumbra: 1; distance:6; intensity: 4.20" position="0 5 -1" rotation="-59.32 90 0"></a-entity>
+                <a-entity id="light3" light="type: spot; angle: 35; penumbra: 1" position="0 3.5 -5" rotation="-90 0 0"></a-entity>
+                <a-entity id="light4" light="type: spot; angle: 45; penumbra: 1"  position="-0.08928 4.17695 -5" rotation="-36 -90"></a-entity>
+                <a-entity id="light5" light="type: spot; angle: 45; penumbra: 1" position="0 3 -6.6" rotation="-30 0 0"></a-entity>
+                <a-entity id="light6" light="type: spot; angle: 35; penumbra: 1" position="-3 3.5 -7" rotation="-90 0 0"></a-entity>
+                <a-entity id="light7" light="type: spot; angle: 35; penumbra: 1" position="-7.2 3.5 -5.85" rotation="-90 0 0"></a-entity>
+                <a-entity id="light8" light="type: spot; angle: 35; penumbra: 1" position="-7.7357 4.78283 -4.263" rotation="-45.213 90 0"></a-entity>
+                <a-entity id="light9" light="type: spot; angle: 35; penumbra: 1" position="-7.7357 4.78283 -7.332" rotation="-45.213 90 0"></a-entity>
+                <a-entity id="light10" light="type: spot; angle: 35; penumbra: 1" position="-7.2 4 -2" rotation="-80 180 0"></a-entity>
+                <a-entity id="light11" light="type: spot; angle: 35; penumbra: 1; distance: 9; intensity: 1.4" position="-7.80723 4.17695 -1.23762" rotation="-36 -90"></a-entity>
+
+            </a-entity>
+
+            <a-entity id="intro wall objects" position="-2.98 -.109 -1.014">
+                <a-entity id="name" position="0 2.3 0" rotation="0 90 0" scale="1.8 1.8 1" geometry="primitive: plane; height: .724; width: .968" material="src:#name_img; shader:flat">
+                    <a-box position="0 0 -.011" width=".968" height=".724" depth=".02"></a-box>
+                </a-entity>
+                <a-entity id="selectedprojects" position="0 1.412 0" rotation="0 90 0" scale="1.5 1.5 1" geometry="primitive: plane; width: .893; height: .170" material="src:#selectedprojects_img; shader:flat">
+                    <a-box position="0 0 -.011" width=".893" height=".170" depth=".02"></a-box>
+                </a-entity>
+                <a-entity id="year" position="0 1 0" rotation="0 90 0" scale="1.5 1.5 1" geometry="primitive: plane; width: .679; height: .232" material="src:#year_img; shader: flat">
+                    <a-box position="0 0 -.011" width=".679" height=".232" depth=".02"></a-box>
+                </a-entity>
+            </a-entity>
+
+            <a-entity id="audi video" position="2.95 2 -5" rotation="0 -90 0">
+                <a-video src="#audi_vid" width="3.2" height="1.8">
+                    <a-box position="0 0 -.021" width="3.2" height="1.8" depth=".04"></a-box>
+                </a-video>
+            </a-entity>
+
+            <a-entity id="audi wall text" position="0 1.8 -8.96">
+                <a-entity id="audi text" position="0 0 0" rotation="0 0 0" scale="2.5 2.5 1" geometry="primitive: plane; height: .525; width: .8" material="src:#auditext_img; shader: flat">
+                    <a-box position="0 0 -.021" width=".8" height=".525" depth=".04"></a-box>
+                </a-entity>
+            </a-entity>
+
+            <a-entity id="seereal video ctc" position="-9.96 2.3 -7.4" rotation="0 90 0" scale="3 3 1">
+                <a-video src="#seereal_ctc_vid" width=".332" height=".720">
+                    <a-box position="0 0 -.021" width=".332" height=".720" depth=".04"></a-box>
+                </a-video>
+            </a-entity>
+
+            <a-entity id="seereal video fl" position="-9.96 2.3 -4.25" rotation="0 90 0" scale="3 3 1">
+                    <a-video src="#seereal_fl_vid" width=".332" height=".720">
+                        <a-box position="0 0 -.021" width=".332" height=".720" depth=".04"></a-box>
+                    </a-video>
+            </a-entity>
+
+            <a-entity id="seereal logo" position="-9.96 2.2 -5.844" rotation="0 90 0" scale="2 2 1" geometry="primitive: plane; height: .525; width: .8" material="src:#seerealtext_img; shader: flat">
+                    <a-box position="0 0 -.021" width=".8" height=".525" depth=".04"></a-box>
+            </a-entity>
+
+            <a-entity id="climb text" position="-4.04 2 -1.5" rotation="0 -90 0" scale="2 2 1" geometry="primitive: plane; height: .378; width: .8" material="src:#climbtext_img; shader: flat">
+                    <a-box position="0 0 -.021" width=".8" height=".378" depth=".04"></a-box>
+            </a-entity>
+
+            <a-entity id="ladder" ladder-rungs="frequency: .6; amount:49" position="-7 1 0">
+                <a-cylinder position=".3 14 0" scale=".05 30 .05" segments-height="1" segments-radial="6" open-ended="true" material="shader: flat"></a-cylinder>
+                <a-cylinder position="-.3 14 0" scale=".05 30 .05" segments-height="1" segments-radial="6" open-ended="true" material="shader: flat"></a-cylinder>
+            </a-entity>
+
+
+
+            <a-entity id="room" position="-2.5 1 -15">
+                <a-entity
+                    id="floor"
+                    position="-1 -.5 11.5"
+                    rotation="-90 0 0"
+                    geometry="primitive: plane; width: 13; height:15"
+                    material="src:#floor_diff; normalMap:#floor_norm; repeat:13 15">
+                </a-entity>
+
+                <a-entity id="gallery 1">
+                    <a-entity
+                        id="gallery-1-north-wall"
+                        position="1.5 1.5 6"
+                        geometry="primitive: plane; width: 8; height: 4"
+                        material="src:#plaster_diff; normalMap:#plaster_norm; repeat:8 4">
+                    </a-entity>
+
+                    <a-entity
+                        id="gallery-1-west-wall"
+                        position="-.5 5.5 13.5"
+                        rotation="0 90 0"
+                        geometry="primitive: plane; width: 7; height: 12"
+                        material="src:#plaster_diff; normalMap:#plaster_norm; repeat:7 12">
+                    </a-entity>
+
+                    <a-entity
+                        id="gallery-1-east-wall"
+                        position="5.5 1.5 11.5"
+                        rotation="0 -90 0"
+                        geometry="primitive: plane; width: 11; height: 4"
+                        material="src:#plaster_diff; normalMap:#plaster_norm; repeat:11 4">
+                    </a-entity>
+
+                </a-entity>
+
+                <a-entity id="gallery 2">
+                    <a-entity
+                        id="gallery-2-small-wall"
+                        position="-1 1.5 10"
+                        rotation="0 180 0"
+                        geometry="primitive: plane; width: 1; height:4"
+                        material="src:#plaster_diff; normalMap:#plaster_norm; repeat:1 4">
+                    </a-entity>
+
+                    <a-entity
+                        id="gallery-2-east-wall"
+                        position="-1.5 1.5 13.5"
+                        rotation="0 -90 0"
+                        geometry="primitive: plane; width: 7; height: 4"
+                        material="src:#plaster_diff; normalMap:#plaster_norm; repeat:7 4">
+                    </a-entity>
+
+                    <a-entity
+                        id="gallery-2-south-wall"
+                        position="-4.5 1.5 17"
+                        rotation="0 180 0"
+                        geometry="primitive: plane; width: 6; height: 4;"
+                        material="src:#plaster_diff; normalMap:#plaster_norm; repeat:6 4">
+                    </a-entity>
+
+                    <a-entity
+                        id="gallery-2-west-wall"
+                        position="-7.5 1.5 10"
+                        rotation="0 90 0"
+                        geometry="primitive: plane; width: 14; height: 4;"
+                        material="src:#plaster_diff; normalMap:#plaster_norm; repeat:14 4">
+                    </a-entity>
+                </a-entity>
+                
+            </a-entity>
+    </a-scene>
+    </body>
+</html>
