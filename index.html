@@ -30,9 +30,18 @@
 
 
                 <!-- Videos -->
-                <video id="audi_vid" src="assets/videos/audi.webm" autoplay loop="true"></video>
-                <video id="seereal_ctc_vid" src="assets/videos/seereal_ctc.webm" autoplay loop="true"></video>
-                <video id="seereal_fl_vid" src="assets/videos/seereal_fl.webm" autoplay loop="true"></video>
+                <video id="audi_vid" preload autoplay loop="true" poster="assets/videos/audi.jpg">
+                    <source src="assets/videos/audi.webm" type="video/webm">
+                    <source src="assets/videos/audi.mp4" type="video/mp4">
+                </video>
+                <video id="seereal_ctc_vid" preload autoplay loop="true">
+                    <source src="assets/videos/seereal_ctc_trim2.webm" type="video/webm">
+                    <source src="assets/videos/seereal_ctc.mp4" type="video/mp4">
+                </video>
+                <video id="seereal_fl_vid" preload autoplay loop="true">
+                    <source src="assets/videos/seereal_fl_trim.webm" type="video/webm">
+                    <source src="assets/videos/seereal_fl.mp4" type="video/mp4">
+                </video>
             </a-assets>
 
             <a-sky color="black"></a-sky>
