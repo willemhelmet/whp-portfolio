@@ -1,66 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="description" content="Personal website for Willem Helmet Pickleman">
-    <meta name="keywords" content="vr, ar, xr, virtual reailty, augmented reality, mixed reality, resume, portfolio, experiential, technology,">
-    <meta name="author" content="Willem Helmet Pickleman">
-
-    <title>Willem Helmet Pickleman | Welcome</title>
     <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
-    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-    <script src="js/aframe-my-link.js"></script>
-
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a-scene cursor="rayOrigin: mouse">
-        <a-assets>
-            <img id="floor_diff" src="assets/img/textures/T_Floor_01_D.jpg">
-            <img id="floor_norm" src="assets/img/textures/T_Floor_01_N.jpg">
-            <a-asset-item id="whp-gltf" src="assets/models/whp.gltf"></a-asset-item>
-            <a-asset-item id="resume-gltf" src="assets/models/resume.gltf"></a-asset-item>
-            <a-asset-item id="portfolio-gltf" src="assets/models/portfolio.gltf"></a-asset-item>
-            <a-asset-item id="contact-gltf" src="assets/models/contact.gltf"></a-asset-item>
+    <h1>WILLEM HELMET PICKLEMAN</h1>
 
-        </a-assets>
-
-        <a-camera wasd-controls="enabled: false" fov="45"></a-camera>
-        <a-sky color="#E89E7A"></a-sky>
-
-        <!--
-        <a-entity
-            id="floor"
-            rotation="-90 0 0"
-            position="0 0 -5"
-            geometry="primitive: plane; width: 14; height:15"
-            material="src:#floor_diff; normalMap:#floor_norm; repeat:7 8">
-        </a-entity>
-    -->
-
-        <a-entity id="whp" gltf-model="#whp-gltf" rotation="90 0 0" position="0 2 -4"
-        animation="property: rotation; to: 450 360 0; dur: 1500; delay: 15000; easing: linear"
-        ></a-entity>
-
-        <a-entity id="resume" gltf-model="#resume-gltf" rotation="90 0 0" position="-1.4 .8 -4" scale=".5 .5 .5"
-        animation="property: rotation; to: 450 360 0; dur: 1500; delay: 15000; easing: linear"
-        my-link="url:assets/WHPResumeMarch2019.pdf"
-        ></a-entity>
-
-        <a-entity id="portfolio" gltf-model="#portfolio-gltf" rotation="90 0 0" position="0 .8 -4" scale=".5 .5 .5"
-        animation="property: rotation; to: 450 360 0; dur: 1500; delay: 15000; easing: linear"
-        my-link="url:gallery.html"
-        ></a-entity>
-
-        <a-entity id="contact" gltf-model="#contact-gltf" rotation="90 0 0" position="1.4 .8 -4" scale=".5 .5 .5"
-        animation="property: rotation; to: 450 360 0; dur: 1500; delay: 15000; easing: linear"
-        my-link="url:mailto:willemhelmet@gmail.com"
-        ></a-entity>
-
-        <a-light 
-            type="ambient" rotation="0 0 0" position="0 0 0"
-        ></a-light>
-
-
-    </a-scene>
+    <div id="menu-outer">
+        <div class="table">
+            <ul id="horizontal-list">
+                <li><a href="/assets/WHPResumeMarch2019.pdf">RESUME</a></li>
+                <li><a href="gallery.html">PORTFOLIO</a></li>
+                <li><a href="mailto:willemhelmet@gmail.com">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

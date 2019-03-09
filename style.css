@@ -1,0 +1,39 @@
+body {
+    background-color: #E89E7A;
+}
+* {
+    font-family: 'Anton';
+}
+h1 {
+    color: #F53837;
+    letter-spacing: 2px;
+    text-align: center;
+    font-size: 10em;
+}
+a {
+    color: white;
+    letter-spacing: 1px;
+    font-size: 5em;
+}
+a:hover {
+    color: #F53837;
+}
+
+/* Stolen from: https://css-tricks.com/centering-list-items-horizontally-slightly-trickier-than-you-might-think/ */
+#menu-outer {
+    height: 84px;
+    text-align: center;
+}
+
+.table {
+	display: table;   /* Allow the centering to work */
+	margin: 0 auto;
+}
+
+ul#horizontal-list {
+	list-style: none;
+}
+
+ul#horizontal-list li {
+    display: inline;
+}
