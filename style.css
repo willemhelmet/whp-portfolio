@@ -5,7 +5,7 @@ body {
     font-family: 'Anton';
 }
 h1 {
-    color: #F53837;
+    color: #CB0000;
     letter-spacing: 2px;
     text-align: center;
     font-size: 10em;
@@ -16,7 +16,7 @@ a {
     font-size: 5em;
 }
 a:hover {
-    color: #F53837;
+    color: #CB0000;
 }
 
 /* Stolen from: https://css-tricks.com/centering-list-items-horizontally-slightly-trickier-than-you-might-think/ */
